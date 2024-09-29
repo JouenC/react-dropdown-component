@@ -12,7 +12,7 @@ interface DropdownProps {
   className?: string; // facultatif, car il a une valeur par défaut
   id: string;
   label: string;
-  options: DropdownOption[];
+  select: DropdownOption[];
   handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -26,13 +26,13 @@ export default function Dropdown({
   className = '', // valeur par défaut pour className
   id,
   label,
-  options,
+  select,
   handleChange,
 }: DropdownProps): JSX.Element {
   
   // Fonction pour rendre les options
   const renderOptions =
-    options.map((item) => (
+    select.map((item) => (
       <option
         title="dropdownOption"
         value={item.value}
