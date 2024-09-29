@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-component-cj",
-  "version": "0.6.1",
+  "version": "0.6.3",
   "description": "A customizable dropdown component for React applications",
   "main": "dist/index.js",
   "engines": {
