@@ -1,40 +1,60 @@
 import * as React from 'react'
 import './styles.scss'
 
-const { useState, useEffect } = React
-
-const Counter: React.FC<{
-  count: number
-  className: string
-}> = ({ count, className }) => (
-  <div className={`counter ${className}`}>
-    <p
-      key={count}
-      className={`counter__count ${className ? className + '__count' : ''}`}
-    >
-      {count}
-    </p>
-  </div>
-)
-
-export type ICounterProps = {
-  className?: string
+// Définir les types pour les propriétés
+interface DropdownOption {
+  value: string | number;
+  label: string;
+  abbrev?: string; // facultatif
 }
 
-const App: React.FC<ICounterProps> = ({ className = '' }) => {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (count > 99) return setCount(0)
-
-      setCount(count + 1)
-    }, 1000)
-
-    return () => clearInterval(interval)
-  }, [count, setCount])
-
-  return <Counter className={className} count={count} />
+interface DropdownProps {
+  className?: string; // facultatif, car il a une valeur par défaut
+  id: string;
+  label: string;
+  options: DropdownOption[];
+  handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export default App
+/**
+ * Dropdown
+ *
+ * @param   {DropdownProps} props - Propriétés du composant
+ * @returns {JSX.Element}   jsx injecté dans le DOM
+ */
+export default function Dropdown({
+  className = '', // valeur par défaut pour className
+  id,
+  label,
+  options,
+  handleChange,
+}: DropdownProps): JSX.Element {
+  
+  // Fonction pour rendre les options
+  const renderOptions =
+    options.map((item) => (
+      <option
+        title="dropdownOption"
+        value={item.value}
+        key={item.abbrev || item.value.toString()} // `abbrev` est facultatif, `value` doit être converti en chaîne si c'est un nombre
+      >
+        {item.label}
+      </option>
+    ));
+
+  return (
+    <div className={`form-inputWrapper ${className}`}>
+      <label htmlFor={id}>{label}</label>
+      <select
+        className="dropdownList"
+        id={id}
+        onChange={handleChange}
+        aria-required="true"
+        required
+        defaultValue="" // Ajout d'une option par défaut vide
+      >
+        {renderOptions}
+      </select>
+    </div>
+  );
+}

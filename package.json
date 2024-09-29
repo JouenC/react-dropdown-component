@@ -1,10 +1,7 @@
 {
-  "name": "dummy-counter",
-  "version": "1.0.0",
-  "description": "A dummy counter component",
-  "author": "ovieokeh",
-  "license": "Apache-2.0",
-  "repository": "ovieokeh/dummy-counter",
+  "name": "react-dropdown-component-cj",
+  "version": "0.3.6",
+  "description": "A customizable dropdown component for React applications",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8",
