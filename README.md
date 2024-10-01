@@ -1,6 +1,6 @@
 # React Dropdown Component
 
-A simple and customizable dropdown component for React 18.3.1.
+A simple and customizable dropdown component for React 16.0.0. to React 18.3.1.
 
 ## Installation
 
