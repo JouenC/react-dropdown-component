@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-component-cj",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "A customizable dropdown component for React applications",
   "main": "dist/index.js",
   "engines": {
@@ -12,8 +12,8 @@
     "start": "rollup -c -w"
   },
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": ">=16.8.0 <=18.x.x",
+    "react-dom": ">=16.8.0 <=18.x.x"
   },
   "devDependencies": {
     "@types/react": "^16.3.13",
